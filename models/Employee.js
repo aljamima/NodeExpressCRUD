@@ -2,9 +2,9 @@ var mongoose = require('mongoose');
 
 var EmployeeSchema = new mongoose.Schema({
   name: String,
-  address: String,
+  type: String,
   position: String,
-  salary: Number,
+  hashrate: String,
   updated_at: { type: Date, default: Date.now },
 });
 

@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Employee Detail</title>
+    <title>Miner Detail</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <div class="container">
-      <h3><a href="/employees">Employee List</a></h3>
-      <h1>Employee Detail</h1>
+      <h3><a href="/employees">Miners</a></h3>
+      <h1>Miner Details</h1>
       <table>
         <tbody>
           <tr>
@@ -16,9 +16,9 @@
             <td><%= employee.name %></td>
           </tr>
           <tr>
-            <td>Address</td>
+            <td>Type</td>
             <td>:</td>
-            <td><%= employee.address %></td>
+            <td><%= employee.type %></td>
           </tr>
           <tr>
             <td>Position</td>
@@ -26,9 +26,9 @@
             <td><%= employee.position %></td>
           </tr>
           <tr>
-            <td>Salary</td>
+            <td>Hashrate</td>
             <td>:</td>
-            <td>$<%= employee.salary %>/year</td>
+            <td><%= employee.hashrate %>Th/s</td>
           </tr>
         </tbody>
       </table>

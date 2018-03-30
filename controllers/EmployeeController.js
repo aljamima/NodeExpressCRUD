@@ -1,9 +1,8 @@
 var mongoose = require("mongoose");
+//var Employee = mongoose.model("Employee");
 var Employee = require("../models/Employee");
-
 var employeeController = {};
 
-// Show list of employees
 employeeController.list = function(req, res) {
   Employee.find({}).exec(function (err, employees) {
     if (err) {
@@ -14,8 +13,6 @@ employeeController.list = function(req, res) {
     }
   });
 };
-
-// Show employee by id
 employeeController.show = function(req, res) {
   Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
     if (err) {
@@ -27,12 +24,10 @@ employeeController.show = function(req, res) {
   });
 };
 
-// Create new employee
 employeeController.create = function(req, res) {
   res.render("../views/employees/create");
 };
 
-// Save new employee
 employeeController.save = function(req, res) {
   var employee = new Employee(req.body);
 
@@ -41,13 +36,12 @@ employeeController.save = function(req, res) {
       console.log(err);
       res.render("../views/employees/create");
     } else {
-      console.log("Successfully created an employee.");
+      console.log("Successfully created a new miner.");
       res.redirect("/employees/show/"+employee._id);
     }
   });
 };
 
-// Edit an employee
 employeeController.edit = function(req, res) {
   Employee.findOne({_id: req.params.id}).exec(function (err, employee) {
     if (err) {
@@ -59,9 +53,8 @@ employeeController.edit = function(req, res) {
   });
 };
 
-// Update an employee
 employeeController.update = function(req, res) {
-  Employee.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, address: req.body.address, position: req.body.position, salary: req.body.salary }}, { new: true }, function (err, employee) {
+  Employee.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, type: req.body.type, position: req.body.position, hashrate: req.body.hashrate }}, { new: true }, function (err, employee) {
     if (err) {
       console.log(err);
       res.render("../views/employees/edit", {employee: req.body});
@@ -70,7 +63,6 @@ employeeController.update = function(req, res) {
   });
 };
 
-// Delete an employee
 employeeController.delete = function(req, res) {
   Employee.remove({_id: req.params.id}, function(err) {
     if(err) {
@@ -82,5 +74,6 @@ employeeController.delete = function(req, res) {
     }
   });
 };
+
 
 module.exports = employeeController;

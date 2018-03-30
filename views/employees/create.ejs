@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Create Employee</title>
+    <title>New Miner</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <div class="container">
-      <h3><a href="/employees">Employee List</a></h3>
-      <h1>Create New Employee</h1>
+      <h3><a href="/employees">View Miners</a></h3>
+      <h1>Create New Miner</h1>
       <form action="/employees/save" method="post">
         <table>
           <tbody>
@@ -16,19 +16,19 @@
               <td><input type="text" name="name" /></td>
             </tr>
             <tr>
-              <td>Address</td>
-              <td><textarea name="address"></textarea></td>
+              <td>Type</td>
+              <td><input type="text" name="type"></td>
             </tr>
             <tr>
               <td>Position</td>
               <td><input type="text" name="position" /></td>
             </tr>
             <tr>
-              <td>Salary</td>
-              <td><input type="number" name="salary" /></td>
+              <td>Hashrate</td>
+              <td><input type="text" pattern="\d*(\.\d{0,2})?" name="hashrate" /></td>
             </tr>
             <tr>
-              <td colspan="2"><button type="submit">Save</button></td>
+              <td colspan="2"><input type="submit" value="Save New Miner" /></td>
             </tr>
           </tbody>
         </table>
